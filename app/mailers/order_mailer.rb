@@ -1,10 +1,6 @@
 class OrderMailer < ApplicationMailer
-  def creation_confirmation(order)
+  def confirmation_email(order)
     @order = order
-
-    mail(
-      to:       @order.user.email,
-      subject:  "Order #{@order.name} created!"
-    )
+    mail(to: order.user.email, subject: "Your Order #{@order.id}")
   end
 end
